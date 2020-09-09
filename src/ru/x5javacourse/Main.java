@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 import static ru.x5javacourse.hw2.HW2.*;
+import static ru.x5javacourse.hw3.HW3.hw3;
 
 public class Main {
     public static void main(String [] args) throws IOException
@@ -24,7 +25,10 @@ public class Main {
                     hw2Choosing();
                     break;
                 case 3:
-                    System.out.println("Здесь будет ДЗ-3");
+                    hw3();
+                    break;
+                case 4:
+                    System.out.println("Здесь будет ДЗ-4");
                     break;
             }
             continueAnswer = continueProgram();

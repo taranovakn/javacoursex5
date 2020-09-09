@@ -42,9 +42,8 @@ public class Phone {
         String numberPrint="";
         for (long l : number) {
             numberPrint += l + "; ";
-            System.out.println(numberPrint);
         }
-
+        System.out.println(numberPrint);
     }
 
 }

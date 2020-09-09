@@ -6,6 +6,7 @@ public class HW3 {
         Phone phone2ndCaller = new Phone(9001234566L, "iphone", 50);
         Phone phone3rdCaller = new Phone(9534025837L, "huawei", 75);
 
+        System.out.println("Вызов экземпляров класса Phone");
         System.out.println("1 экземпляр: номер - " + phone1stCaller.getNumber() + "; модель - " +
                 phone1stCaller.getModel() + "; вес - " + phone1stCaller.getWeight() + ".");
         System.out.println("2 экземпляр: номер - " + phone2ndCaller.getNumber() + "; модель - " +
@@ -13,12 +14,15 @@ public class HW3 {
         System.out.println("3 экземпляр: номер - " + phone3rdCaller.getNumber() + "; модель - " +
                 phone3rdCaller.getModel() + "; вес - " + phone3rdCaller.getWeight() + ".");
 
+        System.out.println("Вызов метода receiveCall в классе Phone");
         System.out.println(phone1stCaller.receiveCall("София"));
         System.out.println(phone2ndCaller.receiveCall("Мирослав"));
         System.out.println(phone3rdCaller.receiveCall("Игорь"));
 
+        System.out.println("Вызов метода receiveCall в классе Phone c 2 принимающими параметрами");
         System.out.println(phone1stCaller.receiveCall("София", phone1stCaller.getNumber()));
 
+        System.out.println("Вызов метода sendMessage в классе Phone с переменным количеством аргументов");
         phone1stCaller.sendMessage(9678965436L, 9879857647L, 9475637874L);
         phone1stCaller.sendMessage(phone2ndCaller.getNumber());
         phone1stCaller.sendMessage(946573876L,9898987898L,9876789809L,9870989878L);

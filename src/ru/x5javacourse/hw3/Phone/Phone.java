@@ -1,4 +1,4 @@
-package ru.x5javacourse.hw3;
+package ru.x5javacourse.hw3.Phone;
 
 public class Phone {
 

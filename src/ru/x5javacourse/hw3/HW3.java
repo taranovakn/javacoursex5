@@ -17,7 +17,7 @@ public class HW3 {
 
         System.out.println("Какое класс хотите проверить Phone, Animals или Students? " +
                 "Введите с клавиатуры 1, 2 или 3");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
         int hw3 = readIntFromKeyboard();
         switch (hw3){
             case 1:

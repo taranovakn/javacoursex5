@@ -288,6 +288,17 @@ public class HW2 {
         }
         return 0;
     }
+    public static double readDoubleFromKeyboard() throws IOException{
+        boolean isNotCorrectInput = true;
+        while (isNotCorrectInput) {
+            try {
+                return Double.valueOf(readerFromKeyboard());
+            } catch (NumberFormatException exception) {
+                System.out.println("Вы ввели не число");
+            }
+        }
+        return 0;
+    }
     public static boolean positiveNumber(int num) {
         boolean isPositive = false; // положительное
         if (num > 0) {

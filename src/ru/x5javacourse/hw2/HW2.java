@@ -84,11 +84,12 @@ public class HW2 {
 
        if (number == 0) {
            System.out.println(number + " - нулевое число");
-        } else System.out.println(number + " - это " +positiveOrNegativeDefinition + oddOrEvenDefinition+ "число");
+       } else {
+           System.out.println(number + " - это " + positiveOrNegativeDefinition + oddOrEvenDefinition + "число");
+       }
     }
 
     public static void compareNumbers() throws IOException {
-
         int[] numbers;
         int countOfNumbersToCompare = correctCountInput();
 
@@ -101,29 +102,34 @@ public class HW2 {
         biggestNumber = maximumNumber(numbers);
         System.out.println("Наибольшее число " + biggestNumber);
     }
+
     public static int correctCountInput() throws IOException {
         System.out.println("Введите количество числе для сравнения.");
         boolean isNotCorrectInput = true;
         while (isNotCorrectInput) {
         int countOfComparableNumbers = readIntFromKeyboard();
-        if (countOfComparableNumbers >0){
+        if (countOfComparableNumbers > 0){
             return countOfComparableNumbers;
-        } else System.out.println("Вы ввели некорректное количество.");
+        } else {
+            System.out.println("Вы ввели некорректное количество.");
+        }
     }
         return 0;
     }
+
     public static void sumOfNumbersWithCalculationCase4 () throws IOException {
         System.out.println("Введите число (Возможен ввод положительных и отрицательных чисел)");
         int number = readIntFromKeyboard();
         if (number > 0) {
             number++;
-        } else
-            if (number < 0) {
-                number += 2;
-            } else number = 10;
-
+        } else if (number < 0) {
+            number += 2;
+        } else {
+            number = 10;
+        }
         System.out.println("Итоговое число: " + number);
     }
+
     public static void sumOfNumbersWithCalculation() throws IOException {
         System.out.println("Введите число (Возможен ввод положительных и отрицательных чисел)");
         Integer sumOfNumbersWithCalculation = readIntFromKeyboard();
@@ -132,20 +138,25 @@ public class HW2 {
         }
         System.out.println("Итоговое число: " + sumOfNumbersWithCalculation);
     }
+
     public static void sumOfNumbers() throws IOException {
-        System.out.println("Введите трехзначное число");
-        int numberForSum = readIntFromKeyboard();
-        int sumOfNumbers = numberForSum / 100 + numberForSum / 10 % 10 + numberForSum % 10;
-        System.out.println("Сумма цифр трехначного числа " + sumOfNumbers);
+        System.out.println("Введите число");
+        String numberForSum = readerFromKeyboard();
+        int sumOfNumbers = 0;
+        for (char c : numberForSum.toCharArray()) {
+            sumOfNumbers += Character.getNumericValue(c);
+        }
+        System.out.println("Сумма цифр введенного числа " + sumOfNumbers);
     }
+
     public static void calculateTheLastSymbolOfNumber() throws IOException {
         System.out.println("Введите число");
         int calculateTheLastSymbolOfNumber = readIntFromKeyboard();
         calculateTheLastSymbolOfNumber = calculateTheLastSymbolOfNumber % 10;
         System.out.println("Последняя цифра введенного числа " + calculateTheLastSymbolOfNumber);
     }
-    public static void revertOfArray(int[] numArray){
 
+    public static void revertOfArray(int[] numArray){
         int[] revertedNumArrayForCase9 = new int[numArray.length];
         int indexOfRevertArray=0;
         for (int i = numArray.length-1; i >=0; i--) {
@@ -157,6 +168,7 @@ public class HW2 {
             System.out.print(revertedNumArrayForCase9[i]+"; ");
         }
     }
+
     public static void moveZeroToTheEndOfArray(int[] numArray) {
         int[] moveZeroToTheEnd = new int[numArray.length];
         int moveZeroToTheEndIndex=0;
@@ -171,11 +183,12 @@ public class HW2 {
             System.out.print(moveZeroToTheEnd[i]+"; ");
         }
     }
-    public static void maxValueOfArray(int[] numArray) {
 
+    public static void maxValueOfArray(int[] numArray) {
         int maxNumber = maximumNumber(numArray);
         System.out.println("Максимальное число в массиве " + maxNumber);
     }
+
     public static void sumOfPositiveElements(int[] numArray) {
         int sumOfPositiveElements = 0;
         for (int i = 0; i < numArray.length; i++) {
@@ -184,16 +197,17 @@ public class HW2 {
         }
         System.out.println("Сумма положительных элементов в массиве " + sumOfPositiveElements);
     }
+
     public static void sumOfOddNegativeNumbers(int[] numArray) {
         int sumOfOddNegativeNumbers = 0;
         for (int i = 0; i < numArray.length; i++) {
-
             if (negativeNumber(numArray[i]) && isEvenNumber(numArray[i])) {
                 sumOfOddNegativeNumbers = sumOfOddNegativeNumbers + numArray[i];
             }
         }
         System.out.println("Сумма четных отрицательных элементов в массиве " + sumOfOddNegativeNumbers);
     }
+
     public static void countOfPositiveNumbers(int[] numArray){
         int countOfPositiveNumbers = 0;
         for (int i = 0; i < numArray.length; i++) {
@@ -203,6 +217,7 @@ public class HW2 {
         }
         System.out.println("Количество положительных элементов в массиве (не включая 0) " + countOfPositiveNumbers);
     }
+
     public static void averageOfNegativeNumbers(int[] numArray){
         double counterOfNegativeNumbers;
         counterOfNegativeNumbers = 0;
@@ -216,6 +231,7 @@ public class HW2 {
         double averageOfNegativeNumbers = sumOfNegativeNumbers / counterOfNegativeNumbers;
         System.out.println("Среднее арифметическое отрицательных чисел в массиве: " + averageOfNegativeNumbers);
     }
+
     public static Integer maximumNumber (int[] arrayOfNumbers)  {
         int maxNumber = arrayOfNumbers[0];
         for (int n = 0; n < arrayOfNumbers.length; n++) {
@@ -225,8 +241,8 @@ public class HW2 {
         }
         return maxNumber;
     }
-    public static void callPrice() throws IOException {
 
+    public static void callPrice() throws IOException {
         System.out.println("Введите код города: Москва(905), Ростов(194), Краснодар(491), Киров(800)");
         int codeOfCity = readIntFromKeyboard();
         System.out.println("Сколько минут планируется звонок?");
@@ -234,6 +250,7 @@ public class HW2 {
         System.out.println(cityNames(codeOfCity) + "Стоимость разговора за "+minForCall + " минут:"
                 + priceForCall(codeOfCity,minForCall) +"руб");
     }
+
     public static String cityNames(int codeOfCity){
         String cityNames;
         switch (codeOfCity){
@@ -254,29 +271,30 @@ public class HW2 {
         }
         return cityNames;
     }
-    public static Double priceForCall(int codeOfCity, int minForCall){
 
+    public static Double priceForCall(int codeOfCity, int minForCall){
         double finalCallPrice = 0;
         if (codeOfCity == 905) {
             finalCallPrice = minForCall * 4.15;
-        } else
-        if (codeOfCity == 194) {
+        } else if (codeOfCity == 194) {
             finalCallPrice = minForCall * 1.98;
-        } else
-        if (codeOfCity == 491) {
+        } else if (codeOfCity == 491) {
             finalCallPrice = minForCall * 2.69;
-        } else
-        if (codeOfCity == 800) {
+        } else if (codeOfCity == 800) {
             finalCallPrice = minForCall * 5;
-        } else System.out.println("Вы ввели некорректный код города, перезапустите программу и попробуйте еще раз");
+        } else {
+            System.out.println("Вы ввели некорректный код города, перезапустите программу и попробуйте еще раз");
+        }
         return (double) Math.round(finalCallPrice * 100) / 100;
     }
+
     public static String readerFromKeyboard() throws IOException {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String enteredValue = reader.readLine();
         return enteredValue;
     }
+
     public static Integer readIntFromKeyboard() throws IOException {
         boolean isNotCorrectInput = true;
         while (isNotCorrectInput) {
@@ -288,6 +306,7 @@ public class HW2 {
         }
         return 0;
     }
+
     public static double readDoubleFromKeyboard() throws IOException{
         boolean isNotCorrectInput = true;
         while (isNotCorrectInput) {
@@ -299,20 +318,25 @@ public class HW2 {
         }
         return 0;
     }
+
     public static boolean positiveNumber(int num) {
         boolean isPositive = false; // положительное
         if (num > 0) {
             isPositive = true;
-    }
+        }
         return isPositive;
     }
+
     public static String positiveOrNegativeNumberStringDescription(int num) {
         String positiveNumberStringDescription;
         if (positiveNumber(num)){
             positiveNumberStringDescription = "положительное ";
-        } else positiveNumberStringDescription = "отрицательное ";
+        } else {
+            positiveNumberStringDescription = "отрицательное ";
+        }
         return positiveNumberStringDescription;
     }
+
     public static boolean negativeNumber(int num) {
         boolean isNegative = false; // отрицательное
         if (num < 0) {
@@ -339,7 +363,10 @@ public class HW2 {
         String evenOrOddNumberStringDescription;
         if (isEvenNumber(num)){
             evenOrOddNumberStringDescription = "четное ";
-        } else evenOrOddNumberStringDescription = "нечетное ";
+        } else {
+            evenOrOddNumberStringDescription = "нечетное ";
+        }
         return evenOrOddNumberStringDescription;
     }
-    }
+
+}

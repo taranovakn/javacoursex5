@@ -11,11 +11,10 @@ public class MainAnimals {
         animals[3] = new Cat("Гипоаллергенный корм для кошек", "Дом", 7, 5);
         animals[4] = new Dog("Гипоаллергенный корм для собак", "Квартира",  50, 45);
         animals[5] = new Horse("Трава", "Конюшня", 135, "Не подкована");
-
-        for (int i = 0; i<animals.length;i++)
-        {
+        Veterinarian v = new Veterinarian();
+        for (int i = 0; i<animals.length;i++) {
             System.out.println("Информация о пришедшем на прием животном " + (i+1) +":");
-            Veterinarian.treatAnimal(animals[i]);
+            v.treatAnimal(animals[i]);
         }
     }
 }

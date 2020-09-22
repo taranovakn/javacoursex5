@@ -11,7 +11,7 @@ public class MainStudents {
         System.out.println("Переменная типа Student, которая ссылается на объект типа Aspirant: " + aspirant.getFirstName() + " " +
                 aspirant.getLastName() + " ; группа " + aspirant.getGroup() + "; " +
                 "средний балл за успеваемость: " + aspirant.getAverageMark() + "; стипендия: $" +
-                aspirant.getScholarship(aspirant) + ";" +
+                aspirant.getScholarship() + ";" +
                 System.lineSeparator()+"Научная работа на тему:" + ((Aspirant) aspirant).getScientificWork());
 
         Student[] students = new Student[6];
@@ -28,20 +28,18 @@ public class MainStudents {
         System.out.println("Перебор всех учащихся и вывод данных о них. ");
         for (Student student : students)
         {
-            if (student instanceof Aspirant)
-            {
+            if (student instanceof Aspirant) {
                 System.out.println("Информация о студенте" + ": " + student.getFirstName() + " " +
-                        student.getLastName() + " ; группа " + student.getGroup() + "; " +
-                        "средний балл за успеваемость: " + student.getAverageMark() + "; стипендия: $" +
-                        student.getScholarship(student) + ";" +
-                        System.lineSeparator()+"Научная работа на тему:" + ((Aspirant) student).getScientificWork());
+                                    student.getLastName() + " ; группа " + student.getGroup() + "; " +
+                                    "средний балл за успеваемость: " + student.getAverageMark() + "; стипендия: $" +
+                                    student.getScholarship() + ";" +
+                                    System.lineSeparator()+"Научная работа на тему:" + ((Aspirant) student).getScientificWork());
             } else {
             System.out.println("Информация о студенте" + ": " + student.getFirstName() + " " +
-                            student.getLastName() + " ; группа " + student.getGroup() + "; " +
-                            "средний балл за успеваемость: " + student.getAverageMark() + "; стипендия: $" +
-                    student.getScholarship(student));
+                                student.getLastName() + " ; группа " + student.getGroup() + "; " +
+                                "средний балл за успеваемость: " + student.getAverageMark() + "; стипендия: $" +
+                                student.getScholarship());
             }
         }
-
     }
 }

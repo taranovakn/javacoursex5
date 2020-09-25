@@ -5,7 +5,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class HW2 {
-    public static <string> void hw2Choosing() throws IOException {
+    public static void hw2Choosing() throws IOException {
 
         System.out.println("Выберите какое из вычиcлений вы хотите проверить");
         System.out.println("1. Ввести целое число в консоли и вывести на экран последнюю цифру введенного числа.");

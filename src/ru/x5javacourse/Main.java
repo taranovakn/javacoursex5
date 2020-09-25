@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import static ru.x5javacourse.hw2.HW2.*;
 import static ru.x5javacourse.hw3.HW3.hw3;
 import static ru.x5javacourse.hw4.HW4.hw4;
+import static ru.x5javacourse.hw5.HW5.hw5;
 
 public class Main {
     public static void main(String [] args) throws IOException
@@ -13,12 +14,12 @@ public class Main {
         boolean continueAnswer = true;
 
         while (continueAnswer){
-            System.out.println("Какое домашнее задание хотите проверить? Введите с клавиатуры: 1, 2, 3, 4 или 5. ");
+            System.out.println("Какое домашнее задание хотите проверить? Введите с клавиатуры: 1, 2, 3, 4, 5 или 6. ");
 
             int hw = readIntFromKeyboard();
 
             switch (hw) {
-                case 1: // 1. Ввести целое число в консоли и вывести на экран последнюю цифру введенного числа.
+                case 1:
                     System.out.println("Hello world!");
                     break;
                 case 2:
@@ -31,7 +32,10 @@ public class Main {
                     hw4();
                     break;
                 case 5:
-                    System.out.println("Здесь будет ДЗ-5");
+                    hw5();
+                    break;
+                case 6:
+                    System.out.println("Здесь будет ДЗ-6");
                     break;
             }
             continueAnswer = continueProgram();

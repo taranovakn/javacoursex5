@@ -1,7 +1,7 @@
 package ru.x5javacourse.hw4.Cars;
 
 public class Lorry extends Car{
-    double payloadCapacity; //грузоподьемность
+    private final double payloadCapacity; //грузоподьемность
 
     public Lorry(double payloadCapacity, String brand, String classOfTheCar, double weight, Engine engine) {
         super(brand,classOfTheCar, weight, engine);
@@ -12,12 +12,12 @@ public class Lorry extends Car{
     }
 
     @Override
-    void start() {
+    public void start() {
         System.out.println("Грузовик поехал.");
     }
 
     @Override
-    void stop() {
+    public void stop() {
         System.out.println("Грузовик остановился.");
     }
 

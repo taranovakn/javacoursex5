@@ -1,18 +1,15 @@
 package ru.x5javacourse.hw4.AreaOfTheFigures;
 
-import java.io.IOException;
-
-import static ru.x5javacourse.hw2.HW2.readDoubleFromKeyboard;
-
 public class Rectangle implements Shape {
-    public double square() throws IOException {
+    private final double a;
+    private final double b;
 
-        System.out.println("Введите длину прямоугольника:");
-        double a = readDoubleFromKeyboard();
-        System.out.println("Введите ширину прямоугольника");
-        double b = readDoubleFromKeyboard();
+    public Rectangle(double a, double b) {
+        this.a = a;
+        this.b = b;
+    }
 
-        double rectangle = a * b;
-        return rectangle;
+    public double square() {
+        return a * b;
     }
 }

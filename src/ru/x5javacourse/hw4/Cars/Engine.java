@@ -1,8 +1,8 @@
 package ru.x5javacourse.hw4.Cars;
 
 public class Engine {
-    private int powerOfEngine;
-    private String manufacturer;
+    private final int powerOfEngine;
+    private final String manufacturer;
 
     public Engine(int powerOfEngine, String manufacturer) {
         this.powerOfEngine = powerOfEngine;

@@ -1,6 +1,5 @@
 package ru.x5javacourse.hw4.Cars;
 
-import ru.x5javacourse.hw4.AreaOfTheFigures.Shape;
 
 public class MainCars {
     public static void mainCars(){

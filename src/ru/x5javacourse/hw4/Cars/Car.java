@@ -1,10 +1,10 @@
 package ru.x5javacourse.hw4.Cars;
 
 public abstract class Car {
-    String brand;
-    String classOfTheCar;
-    double weight;
-    Engine engine;
+    private final String brand;
+    private final String classOfTheCar;
+    private final double weight;
+    public Engine engine;
 
     public Car(String brand, String classOfTheCar, double weight, Engine engine) {
         this.brand = brand;
@@ -21,8 +21,8 @@ public abstract class Car {
     public Engine getEngine(){return engine;}
 
 
-    abstract void start();
-    abstract void stop();
+    public abstract void start();
+    public abstract void stop();
 
     public void turnRight(){
         System.out.println("Поворот направо.");

@@ -1,7 +1,7 @@
 package ru.x5javacourse.hw4.Cars;
 
 public class SportCar extends Car {
-    double maxSpeed;
+    private final double maxSpeed;
 
     public SportCar(double maxSpeed,String brand, String classOfTheCar, double weight, Engine engine) {
         super(brand, classOfTheCar, weight, engine);
@@ -13,12 +13,12 @@ public class SportCar extends Car {
     }
 
     @Override
-    void start() {
+    public void start() {
         System.out.println("SportCar поехал.");
     }
 
     @Override
-    void stop() {
+    public void stop() {
         System.out.println("SportCar остановился.");
     }
 

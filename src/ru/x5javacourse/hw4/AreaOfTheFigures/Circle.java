@@ -1,17 +1,14 @@
 package ru.x5javacourse.hw4.AreaOfTheFigures;
 
-import java.io.IOException;
-
-import static ru.x5javacourse.hw2.HW2.readDoubleFromKeyboard;
 
 public class Circle implements Shape {
+    private final double r;
 
-    public double square() throws IOException {
+    public Circle(double r) {
+        this.r = r;
+    }
 
-        System.out.println("Введите радиус круга:");
-        double r = readDoubleFromKeyboard();
-
-        double circle = 3.14 * Math.pow(r,2);
-        return circle;
+    public double square() {
+        return 3.14 * Math.pow(r,2);
     }
 }

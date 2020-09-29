@@ -1,21 +1,18 @@
 package ru.x5javacourse.hw4.AreaOfTheFigures;
 
-import java.io.IOException;
-
-import static ru.x5javacourse.hw2.HW2.readDoubleFromKeyboard;
-
 public class Triangle implements Shape {
+    private final double a;
+    private final double b;
+    private final double c;
 
-    public double square() throws IOException {
-        System.out.println("Введите длину 1й стороны треугольника:");
-        double a = readDoubleFromKeyboard();
-        System.out.println("Введите длину 2й стороны треугольника:");
-        double b = readDoubleFromKeyboard();
-        System.out.println("Введите длину 3й стороны треугольника:");
-        double c = readDoubleFromKeyboard();
+    public Triangle(double a, double b, double c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
 
+    public double square() {
         double p = (a + b + c) / 2; //полупериметр
-        double triangle = Math.sqrt( p * (p - a) * (p - b)* (p - c));
-        return  triangle;
+        return Math.sqrt( p * (p - a) * (p - b)* (p - c));
     }
 }

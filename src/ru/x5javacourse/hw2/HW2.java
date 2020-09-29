@@ -306,6 +306,22 @@ public class HW2 {
         }
         return 0;
     }
+    public static Integer readCountFromKeyboard() throws IOException {
+        boolean isNotCorrectInput = true;
+        while (isNotCorrectInput) {
+            try {
+                int count = readIntFromKeyboard();
+                if (positiveNumber(count)){
+                    return count;
+                }else{
+                    System.out.println("Вы ввели некорректное значение.");
+                }
+            } catch (NumberFormatException exception) {
+                System.out.println("Вы ввели не число");
+            }
+        }
+        return 0;
+    }
 
     public static double readDoubleFromKeyboard() throws IOException{
         boolean isNotCorrectInput = true;

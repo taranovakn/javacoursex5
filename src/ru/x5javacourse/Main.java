@@ -7,6 +7,7 @@ import static ru.x5javacourse.hw2.HW2.*;
 import static ru.x5javacourse.hw3.HW3.hw3;
 import static ru.x5javacourse.hw4.HW4.hw4;
 import static ru.x5javacourse.hw5.HW5.hw5;
+import static ru.x5javacourse.hw6.HW6.hw6;
 
 public class Main {
     public static void main(String [] args) throws IOException
@@ -35,7 +36,10 @@ public class Main {
                     hw5();
                     break;
                 case 6:
-                    System.out.println("Здесь будет ДЗ-6");
+                    hw6();
+                    break;
+                case 7:
+                    System.out.println("Здесь будет ДЗ-7");
                     break;
             }
             continueAnswer = continueProgram();
@@ -54,10 +58,9 @@ public class Main {
                     isNotCorrectInput = false;
                 } else
                     if (continueAnswer.equals("N")){
-                        continueProgram = false;
                         isNotCorrectInput = false;
                     }
-                    else System.out.println("Введите Y или N.");;
+                    else System.out.println("Введите Y или N.");
         }
         return continueProgram;
     }

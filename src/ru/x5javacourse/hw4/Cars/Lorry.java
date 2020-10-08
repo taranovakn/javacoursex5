@@ -26,7 +26,7 @@ public class Lorry extends Car{
         System.out.println("Информация о грузовике:");
         System.out.println("Максимальная грузоподъемность грузовика: "+ getPayloadCapacity() + "т.; бренд: "
                 + getBrand() + "; класс грузовика: " + getClassOfTheCar() + "; вес автомобиля: " + getWeight() + "т.;");
-        engine.printInfo();
+        getEngine().printInfo();
         System.out.println("Автомобиль в движении: ");
         start();
         turnRight();

@@ -4,7 +4,7 @@ public abstract class Car {
     private final String brand;
     private final String classOfTheCar;
     private final double weight;
-    public Engine engine;
+    private Engine engine;
 
     public Car(String brand, String classOfTheCar, double weight, Engine engine) {
         this.brand = brand;

@@ -26,7 +26,7 @@ public class SportCar extends Car {
     public void printInfo() {
         System.out.println("Информация о SportCar: максимальная скорость SportCar: "+ getMaxSpeed() + " км/ч; бренд: "
                 + getBrand() + "; класс SportCar: " + getClassOfTheCar() + "; вес автомобиля: " + getWeight() + "т.;");
-        engine.printInfo();
+        getEngine().printInfo();
         System.out.println("Автомобиль в движении: ");
         start();
         turnLeft();

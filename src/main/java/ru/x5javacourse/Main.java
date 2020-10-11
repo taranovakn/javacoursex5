@@ -14,7 +14,7 @@ public class Main {
         boolean continueAnswer = true;
 
         while (continueAnswer){
-            System.out.println("Какое домашнее задание хотите проверить? Введите с клавиатуры: 1, 2, 3, 4, 5, 6 или 7. ");
+            System.out.println("Какое домашнее задание хотите проверить? Введите с клавиатуры: 1, 2, 3, 4, 5, 6 или 7(совместно с 8). ");
 
             int hw = readIntFromKeyboard();
 
@@ -38,10 +38,8 @@ public class Main {
                     hw6();
                     break;
                 case 7:
-                    hw7();
-                    break;
                 case 8:
-                    System.out.println("Здесь будет ДЗ-8");
+                    hw7();
                     break;
             }
             continueAnswer = continueProgram();

@@ -8,10 +8,11 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileFunctions {
+public class FileFunctions implements StorageStrategy{
     public static final String FILE_NAME = "bankDB.txt";
 
-    public static void fileWriter(Account account) throws IOException, UnknownAccountException {
+
+    public void writerToStorage(Account account) throws UnknownAccountException {
 
         String oldString = getLineByIdAndHolderId(account);
         String newString = stringNewAccount(account);
@@ -39,9 +40,14 @@ public class FileFunctions {
         }
     }
 
+    @Override
+    public void closeResources() {
+
+    }
+
     //возвращает найденную строку по сочетанию id и holderId
-    public static String getLineByIdAndHolderId(Account account) throws IOException {
-        List<Account> accountFromFile = read();
+    private String getLineByIdAndHolderId(Account account) {
+        List<Account> accountFromFile = readFromStorage();
         for (Account value : accountFromFile) {
             if (account.getId() == value.getId() &&
                     account.getHolderId() == value.getHolderId()) {
@@ -51,7 +57,7 @@ public class FileFunctions {
         return null;
     }
 
-    public static boolean fileCreator() {
+    public boolean fileCreator() {
         File newFile = new File(FILE_NAME);
         try {
             return newFile.createNewFile();
@@ -61,38 +67,47 @@ public class FileFunctions {
         }
     }
 
-    public static String stringNewAccount(Account account){
+    public String stringNewAccount(Account account){
         return account.getId() + "|" +
                         account.getHolderId() + "|" +
                         account.getAmount();
     }
 
-    public static void startConstructor() {
-        fileCreator();
-        ArrayList<String> newAccount = new ArrayList<>();
-        newAccount.add(stringNewAccount(new Account(1, 2, 555.0)));
-        newAccount.add(stringNewAccount(new Account(2, 1, 1000)));
-        newAccount.add(stringNewAccount(new Account(3, 3, 1122)));
-        newAccount.add(stringNewAccount(new Account(4, 4, 890)));
-        newAccount.add(stringNewAccount(new Account(5, 5, 650)));
-        newAccount.add(stringNewAccount(new Account(6, 7, 1)));
-        newAccount.add(stringNewAccount(new Account(7, 6, 0)));
-        newAccount.add(stringNewAccount(new Account(8, 8, 7642)));
-        newAccount.add(stringNewAccount(new Account(9, 10, 435)));
-        newAccount.add(stringNewAccount(new Account(10, 9, 860)));
+    public void startConstructor() {
+        File file = new File(FILE_NAME);
+        if (!file.exists()) {
+            if (fileCreator()) {
+                ArrayList<String> newAccount = new ArrayList<>();
+                newAccount.add(stringNewAccount(new Account(1, 2, 555.0)));
+                newAccount.add(stringNewAccount(new Account(2, 1, 1000)));
+                newAccount.add(stringNewAccount(new Account(3, 3, 1122)));
+                newAccount.add(stringNewAccount(new Account(4, 4, 890)));
+                newAccount.add(stringNewAccount(new Account(5, 5, 650)));
+                newAccount.add(stringNewAccount(new Account(6, 7, 1)));
+                newAccount.add(stringNewAccount(new Account(7, 6, 0)));
+                newAccount.add(stringNewAccount(new Account(8, 8, 7642)));
+                newAccount.add(stringNewAccount(new Account(9, 10, 435)));
+                newAccount.add(stringNewAccount(new Account(10, 9, 860)));
 
-        try (FileWriter writer = new FileWriter(FILE_NAME)) {
-            for (String s : newAccount) {
-                writer.append(s).append("\n");
+                try (FileWriter writer = new FileWriter(FILE_NAME)) {
+                    for (String s : newAccount) {
+                        writer.append(s).append("\n");
+                    }
+                } catch (IOException e) {
+                    System.out.println("Произошла ошибка");
+                }
             }
-        } catch (IOException e) {
-            System.out.println("Произошла ошибка");
         }
 
     }
 
-    public static List<Account> read() throws IOException{
-        List<String> lines = Files.readAllLines(Paths.get(FILE_NAME));
+    public List<Account> readFromStorage() {
+        List<String> lines = null;
+        try {
+            lines = Files.readAllLines(Paths.get(FILE_NAME));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         List<Account> arrayList = new ArrayList<>();
         for(Object s : lines)
         {

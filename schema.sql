@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS Accounts;
+CREATE TABLE IF NOT EXISTS Accounts (
+   id INT NOT NULL,
+   holderId INT NOT NULL,
+   amount DOUBLE NOT NULL);
+

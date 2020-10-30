@@ -1,6 +1,6 @@
 package ru.x5javacourse.hw5.Computer;
 
-public class Monitor {
+public class Monitor implements Component{
     private double monitorSize;
     private String monitorManufacturer;
 
@@ -9,9 +9,14 @@ public class Monitor {
         this.monitorManufacturer = monitorManufacturer;
     }
 
-    public void startMonitor(){
-        System.out.println("Монитор включен. Параметры: " + "производитель - " +
-                monitorManufacturer + "; диагональ - " + monitorSize + ";");
+    @Override
+    public void start(){
+        System.out.println("Монитор включен.");
     }
 
+    @Override
+    public String getInfo(){
+        return "Параметры монитора: " + "производитель - " +
+                monitorManufacturer + "; диагональ - " + monitorSize + ";";
+    }
 }

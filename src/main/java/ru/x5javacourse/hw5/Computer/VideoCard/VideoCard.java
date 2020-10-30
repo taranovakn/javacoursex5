@@ -1,6 +1,8 @@
 package ru.x5javacourse.hw5.Computer.VideoCard;
 
-public class VideoCard {
+import ru.x5javacourse.hw5.Computer.Component;
+
+public class VideoCard implements Component {
     private String videoCardManufacturer;
     private String videoCardMemoryType;
     private int videoCardVolumeMemory;
@@ -13,10 +15,16 @@ public class VideoCard {
         this.videoCardVolumeMemory = videoCardVolumeMemory;
         this.videoCardCooling = videoCardCooling;
     }
-    public void startVideoCard(){
-        System.out.println("Видеокарта запущена. Параметры: " + "производитель - " +
-                videoCardManufacturer + "; тип памяти - " +videoCardMemoryType + "; объем памяти - " +
-                videoCardVolumeMemory + ";");
+    @Override
+    public void start(){
         videoCardCooling.startCooling();
+        System.out.println("Видеокарта запущена.");
+    }
+
+    @Override
+    public String getInfo(){
+        return "Параметры видеокарты: " + "производитель - " +
+                videoCardManufacturer + "; тип памяти - " +videoCardMemoryType + "; объем памяти - " +
+                videoCardVolumeMemory + ";";
     }
 }

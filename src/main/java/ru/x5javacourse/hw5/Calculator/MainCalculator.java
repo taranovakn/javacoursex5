@@ -11,59 +11,37 @@ public class MainCalculator {
 
     public static void mainCalculator() throws IOException {
         System.out.println("Вы перешли в режим калькулятора");
+        Logger logger;
+        do {
+            Scanner scanner = new Scanner(System.in);
+            String userLoggerInput = scanner.nextLine();
+            LoggerResolver loggerResolver = new LoggerResolver();
+            System.out.println("Введите тип логирования: DbLogger, FileLogger или ConsoleLogger;");
+            logger = loggerResolver.getLogger(userLoggerInput);
+        }
+        while (logger == null);
+
+        Calculation calculation = new Calculation(logger);
         System.out.println("Введите первое число: ");
         double a = readDoubleFromKeyboard();
         char operation = getOperation();
         System.out.println("Введите второе число: ");
         double b = readDoubleFromKeyboard();
 
-        LoggingType type;
-        Scanner scanner = new Scanner(System.in);
-        try {
-            System.out.println("Введите тип логирования: DbLogger, FileLogger или ConsoleLogger;");
-            type = LoggingType.valueOf(scanner.nextLine());
-        }catch (Exception e){
-            System.out.println("Вы ввели неверный тип логирования");
-            return;
-        }
-
-        Logger logger = getLogger(type);
-
         switch (operation) {
             case '+':
-                 addition(a, b, logger);
+                 calculation.addition(a, b);
                 break;
             case '-':
-                subtraction(a, b, logger);
+                calculation.subtraction(a, b);
                 break;
             case '*':
-                multiplication(a, b, logger);
+                calculation.multiplication(a, b);
                 break;
             case '/':
-                division(a, b, logger);
+                calculation.division(a, b);
                 break;
         }
-
-    }
-
-    public static void addition (double a, double b, Logger logger){
-        double result = a + b;
-        logger.log("Выполнена операция сложения " + a + " и " + b + "; Результат: " + result);
-    }
-
-    public static void division (double a, double b, Logger logger){
-        double result = a / b;
-        logger.log("Выполнена операция деления " + a + " и " + b + "; Результат: " + result);
-    }
-
-    public static void subtraction(double a, double b, Logger logger){
-        double result = a - b;
-        logger.log("Выполнена операция вычитания " + a + " на " + b + "; Результат: " + result);
-    }
-
-    public static void multiplication(double a, double b, Logger logger){
-        double result = a * b;
-        logger.log("Выполнена операция умножения " + a + " на " + b + "; Результат: " + result);
     }
 
 
@@ -81,21 +59,5 @@ public class MainCalculator {
             operation = getOperation();
         }
         return operation;
-    }
-    public static Logger getLogger(LoggingType loggingType) {
-        LoggerFactory loggerFactory = null;
-        switch (loggingType) {
-            case DbLogger:
-                loggerFactory = new DbLoggerFactory();
-                break;
-            case ConsoleLogger:
-                loggerFactory = new ConsoleLoggerFactory();
-                break;
-            case FileLogger:
-                loggerFactory = new FileLoggerFactory();
-                break;
-        }
-
-            return loggerFactory.createLogger();
     }
 }

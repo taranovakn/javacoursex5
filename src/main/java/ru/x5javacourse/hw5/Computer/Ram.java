@@ -1,6 +1,6 @@
 package ru.x5javacourse.hw5.Computer;
 
-public class Ram {
+public class Ram implements Component{
     private String ramManufacturer;
     private int ramMemorySize;
     private double ramFrequency;
@@ -13,10 +13,15 @@ public class Ram {
         this.ramMemoryType = ramMemoryType;
     }
 
-    public void startRam(){
-        System.out.println("Оперативная память запущена. Параметры: " + "производитель - " +
-                ramManufacturer + "; тип памяти - " +ramMemoryType + "; объем памяти - " +
-                ramMemorySize + "; частота - " + ramFrequency);
+    @Override
+    public void start(){
+        System.out.println("Оперативная память запущена.");
     }
 
+    @Override
+    public String getInfo(){
+        return "Параметры оперативной памяти: " + "производитель - " +
+                ramManufacturer + "; тип памяти - " +ramMemoryType + "; объем памяти - " +
+                ramMemorySize + "; частота - " + ramFrequency;
+    }
 }

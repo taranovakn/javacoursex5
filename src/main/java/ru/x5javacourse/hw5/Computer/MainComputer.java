@@ -1,5 +1,8 @@
 package ru.x5javacourse.hw5.Computer;
 
+import ru.x5javacourse.hw5.Computer.HardDisk.HardDiskFactory;
+import ru.x5javacourse.hw5.Computer.VideoCard.VideoCardFactory;
+
 import java.io.IOException;
 
 import static ru.x5javacourse.hw2.HW2.readIntFromKeyboard;
@@ -26,19 +29,15 @@ public class MainComputer {
         }
         getComputer(computerType).startComputer();
     }
+
     public static Computer getComputer(ComputerType computerType) {
-        ComputerFactory computerFactory = null;
-        switch (computerType) {
-            case HOME_COMPUTER:
-                computerFactory = new HomeComputerFactory();
-                break;
-            case STUDENT_COMPUTER:
-                computerFactory = new StudentComputerFactory();
-                break;
-            case GAMING_COMPUTER:
-                computerFactory = new GamingComputerFactory();
-                break;
-        }
-        return computerFactory.createComputer();
+        Computer computer = new Computer();
+        computer.addComponent(new RamFactory().createRam(computerType));
+        computer.addComponent(new ProcessorFactory().createProcessor(computerType));
+        computer.addComponent(new MonitorFactory().createMonitor(computerType));
+        computer.addComponent(new VideoCardFactory().createVideoCard(computerType));
+        computer.addComponent(new HardDiskFactory().createHardDisk(computerType));
+        return computer;
+        //computerFactory.createComputer();
     }
 }

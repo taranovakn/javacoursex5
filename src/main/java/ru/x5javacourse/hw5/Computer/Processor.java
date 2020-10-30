@@ -1,6 +1,6 @@
 package ru.x5javacourse.hw5.Computer;
 
-public class Processor {
+public class Processor implements Component{
     private double processorClockSpeed; //тактовая частота
     private int processorNumberOfCores; //количество ядер
     private int processorCacheMemory; //кэш-память
@@ -16,10 +16,16 @@ public class Processor {
         this.processorManufacturer = processorManufacturer;
     }
 
-    public void startProcessor(){
-        System.out.println("Процессор запущен. Параметры: " + "производитель - " +
+    @Override
+    public void start(){
+        System.out.println("Процессор запущен.");
+    }
+
+    @Override
+    public String getInfo(){
+        return "Параметры процессора: " + "производитель - " +
                 processorManufacturer + "; название - " + processorName + "; тактовая частота - " +
                 processorClockSpeed + "; количество ядер - " + processorNumberOfCores +
-                "; объем кеш-памяти - " + processorCacheMemory + ";");
+                "; объем кеш-памяти - " + processorCacheMemory + ";";
     }
 }
